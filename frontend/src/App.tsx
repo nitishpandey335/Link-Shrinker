@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react'
 import './App.css'
 import AuthForm from './components/AuthForm'
@@ -133,3 +134,48 @@ function App() {
 }
 
 export default App
+=======
+// src/App.tsx
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import UrlShortenerApp from './UrlShortenerApp';
+import ProtectedRoute from './components/ProtectedRoute';
+
+function App() {
+  const token = localStorage.getItem('token');
+
+  return (
+    <Router>
+      <Routes>
+        {/* If user is logged in, redirect "/" to /home */}
+        <Route
+          path="/"
+          element={token ? <Navigate to="/home" replace /> : <SignIn />}
+        />
+
+        {/* Signup Route - accessible only if not logged in */}
+        <Route
+          path="/signup"
+          element={token ? <Navigate to="/home" replace /> : <SignUp />}
+        />
+
+        {/* Protected Home */}
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <UrlShortenerApp />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Catch all */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d

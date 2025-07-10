@@ -29,5 +29,18 @@
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=6.0.0"
+<<<<<<< HEAD
   }
 } 
+=======
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.1.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.2"
+  }
+}
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d

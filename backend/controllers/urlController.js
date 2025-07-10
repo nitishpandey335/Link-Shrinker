@@ -1,5 +1,6 @@
 import Url from '../models/Url.js';
 import { generateShortUrl } from '../utils/generateShortUrl.js';
+<<<<<<< HEAD
 import bcrypt from 'bcrypt';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -201,3 +202,66 @@ export const redirectUrl = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 }; 
+=======
+
+// Controller to shorten a URL
+export const shortenUrl = async (req, res) => {
+  try {
+    const { originalUrl } = req.body;
+
+    if (!originalUrl) {
+      return res.status(400).json({ error: 'Original URL is required' });
+    }
+
+    const shortId = generateShortUrl();
+
+    const newUrl = new Url({
+      originalUrl,
+      shortUrl: shortId,
+    });
+
+    await newUrl.save();
+
+    res.status(201).json({
+      message: 'URL shortened successfully',
+      shortUrl: shortId,
+    });
+  } catch (error) {
+    console.error('Shorten Error:', error);
+    res.status(500).json({ error: 'Server error while shortening URL' });
+  }
+};
+
+// Controller to get all URLs
+export const getAllUrls = async (req, res) => {
+  try {
+    const urls = await Url.find().sort({ createdAt: -1 });
+
+    res.status(200).json(urls);
+  } catch (error) {
+    console.error('Fetch Error:', error);
+    res.status(500).json({ error: 'Failed to fetch URLs' });
+  }
+};
+
+// Controller to redirect to the original URL
+export const redirectUrl = async (req, res) => {
+  try {
+    const { shortUrl } = req.params;
+    const urlDoc = await Url.findOne({ shortUrl });
+
+    if (!urlDoc) {
+      return res.status(404).json({ error: 'Short URL not found' });
+    }
+
+    // Increment click count
+    urlDoc.clicks += 1;
+    await urlDoc.save();
+
+    res.redirect(urlDoc.originalUrl);
+  } catch (error) {
+    console.error('Redirect Error:', error);
+    res.status(500).json({ error: 'Failed to redirect' });
+  }
+};
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d

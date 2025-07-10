@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import mongoose from 'mongoose';
 import bcryptjs from 'bcryptjs';
 
@@ -31,3 +32,17 @@ userSchema.methods.comparePassword = async function(candidatePassword) {
 };
 
 export default mongoose.model('User', userSchema); 
+=======
+// models/User.js
+import mongoose from 'mongoose';
+
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  email:    { type: String, required: true, unique: true },
+  password: { type: String, required: true }
+});
+
+const User = mongoose.model('User', userSchema);
+
+export default User;
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d

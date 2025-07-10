@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const urlSchema = new mongoose.Schema(
+<<<<<<< HEAD
     {
     originalUrl: { 
         type: String, 
@@ -46,3 +47,20 @@ const urlSchema = new mongoose.Schema(
 );
 
 export default mongoose.model('Url', urlSchema); 
+=======
+  {
+    originalUrl: {
+      type: String,
+      required: true,
+    },
+    shortUrl: {
+      type: String,
+      required: true,
+      unique: true,
+    }
+  },
+  { timestamps: true }
+);
+
+export default mongoose.model('Url', urlSchema);
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d

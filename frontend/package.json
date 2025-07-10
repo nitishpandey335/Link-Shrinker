@@ -10,11 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@types/qrcode": "^1.5.5",
     "dotenv": "^17.1.0",
     "qrcode": "^1.5.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
+=======
+    "axios": "^1.10.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.3",
+    "vite": "^5.2.0"
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
@@ -26,7 +34,11 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
     "typescript": "~5.8.3",
+<<<<<<< HEAD
     "typescript-eslint": "^8.34.1",
     "vite": "^5.2.0"
+=======
+    "typescript-eslint": "^8.34.1"
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d
   }
 }

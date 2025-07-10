@@ -9,7 +9,11 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+<<<<<<< HEAD
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+=======
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d
   min-height: 100vh;
   line-height: 1.6;
 }
@@ -20,11 +24,14 @@ body {
   flex-direction: column;
 }
 
+<<<<<<< HEAD
 .main-content {
   flex: 1;
   padding: 32px 0;
 }
 
+=======
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d
 /* Hero Section */
 .hero-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -52,6 +59,7 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,6 +92,8 @@ body {
   background: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-1px);
+=======
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d
 }
 
 .logo {
@@ -251,8 +261,11 @@ body {
   to { transform: rotate(360deg); }
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d
 /* URLs Section */
 .urls-section {
   background: white;
@@ -422,6 +435,7 @@ body {
 }
 
 .copy-btn {
+<<<<<<< HEAD
   display: flex;
   align-items: center;
   gap: 6px;
@@ -440,6 +454,21 @@ body {
 .copy-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+=======
+  margin-left: 10px;
+  width: 100px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #2017d4;
+}
+
+.copy-btn:hover {
+  background-color: #1b07f8;
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d
 }
 
 .copy-btn.copied {
@@ -484,11 +513,14 @@ body {
     padding: 60px 20px 40px;
   }
   
+<<<<<<< HEAD
   .hero-content {
     flex-direction: column;
     text-align: center;
   }
   
+=======
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d
   .logo h1 {
     font-size: 2.5rem;
   }
@@ -598,3 +630,61 @@ body {
     justify-content: center;
   }
 }
+<<<<<<< HEAD
+=======
+/* ...existing code... */
+
+.navbar {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.08);
+  position: relative;
+  z-index: 10;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgb(15, 15, 15);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.navbar-link:hover {
+  color: #dbeafe;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .navbar-links {
+    gap: 14px;
+  }
+}
+>>>>>>> 5340ab254efa15c49dbc6ca285cac03b083a478d
