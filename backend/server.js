@@ -19,20 +19,29 @@ const PORT = process.env.PORT || 5000;
 // Connect to MongoDB
 connectDB();
 
-// Serve static files (for password-protected page or other assets)
+// Serve static files (optional password prompt page, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Enable CORS
+// ✅ CORS Configuration (Fixes Deployment Errors)
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production'
-    ? [process.env.FRONTEND_URL]
-    : ['http://localhost:3000', 'http://localhost:5173'],
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'https://link-shrinker-vp3z.vercel.app', // ✅ Your deployed frontend domain
+      'http://localhost:3000',
+      'http://localhost:5173'
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200,
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE']
 }));
 
-// Parse JSON request bodies
+// Parse incoming JSON
 app.use(express.json());
 
 // API Routes
@@ -40,12 +49,12 @@ app.use('/api/auth', authRoutes);
 app.use('/api', urlRoutes);
 app.use('/', urlRoutes);
 
-// ✅ Root route to prevent 404 error on `/`
+// ✅ Optional root test route
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// Middleware for 404 and error handling
+// 404 and Error Handler Middleware
 app.use(notFound);
 app.use(errorHandler);
 
